@@ -82,7 +82,7 @@ Example request:
 
 #### POST /api/token
 
-Example request:
+##### Example request:
 
 	POST /api/token HTTP/1.1
 	Host: elementary.io
@@ -95,23 +95,14 @@ Example request:
 Example response:
 
 	HTTP/1.1 200 OK
-
 	Content-Type: application/json;charset=UTF-8
-
 	Cache-Control: no-store
-
 	Pragma: no-cache
-
 	{
-
-	"access_token":"2YotnFZFEjr1zCsicMWpAA",
-
-	"token_type":"bearer",
-
-	"expires_in":3600,
-
-	"refresh_token":"tGzv3JOkF0XG5Qx2TlKWIA"
-
+		"access_token":"2YotnFZFEjr1zCsicMWpAA",
+		"token_type":"bearer",
+		"expires_in":3600,
+		"refresh_token":"tGzv3JOkF0XG5Qx2TlKWIA"
 	}
 
 #### GET /api/user
