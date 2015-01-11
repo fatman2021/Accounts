@@ -1,8 +1,6 @@
 # io
 elementary's web and cloud account system (via OAuth2)
 
-elementary.io OAuth2 API
-
 ## Working Spec
 
 * All endpoints MUST be accessed over TLS
