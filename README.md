@@ -115,12 +115,14 @@ Good reading on the subject of oauth2:
 
 Example successful response body:
 
-	{
-		"_id":"5350a88aac1b7fc107073995",
-		"email":"avi@romanoff.me",
-		"is_verified":true,
-		"joined":"2014-04-18T04:20:52.997Z"
-	}
+```json
+{
+	"_id":"5350a88aac1b7fc107073995",
+	"email":"avi@romanoff.me",
+	"is_verified":true,
+	"joined":"2014-04-18T04:20:52.997Z"
+}
+```
 
 #### PUT /api/user
 
@@ -148,7 +150,9 @@ Example successful response body:
 
 Example successful response body:
 
+	```json
 	{
-		"_id":"5350a88aac1b7fc107073995",
-		"joined":"2014-04-18T04:20:52.997Z"
+		"_id": "5350a88aac1b7fc107073995",
+		"joined": "2014-04-18T04:20:52.997Z"
 	}
+	```
