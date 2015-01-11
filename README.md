@@ -53,32 +53,32 @@ Good reading on the subject of oauth2:
 
 #### GET /oauth/authorize
 
-`URL Parameters:`
+	URL Parameters:
 
-`response_type (required, must be set to `code`)`
+	response_type (required, must be set to code)
 
-`client_id     (required, )`
+	client_id     (required, )
 
-`scope         (required, )`
+	scope         (required, )
 
-`state         (required, used for xsrf protection)`
+	state         (required, used for xsrf protection)
 
-`redirect_uri  (required, properly escaped http url)`
+	redirect_uri  (required, properly escaped http url)
 
-`Response: 302 Found (see below)`
+	Response: 302 Found (see below)
 
-`Authorize successful -> redirect_uri?code=<code>&state=<state>`
+	Authorize successful -> redirect_uri?code=<code>&state=<state>
 
-`Where code is ...`
+	Where code is ...
 
-`Authorize failed -> redirect_uri?error=<error>&state=<state>`
+	Authorize failed -> redirect_uri?error=<error>&state=<state>
 
-`Where error is defined in section 4.1.2.1 of RFC6749`
+	Where error is defined in section 4.1.2.1 of RFC6749
 
-Example request:
+##### Example request:
 
-`/api/authorize?response_type=code&client_id=s6BhdRkqt3&state=xyz
-        &redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb`
+	/api/authorize?response_type=code&client_id=s6BhdRkqt3&state=xyz
+	&redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb
 
 #### POST /api/token
 
@@ -87,12 +87,12 @@ Example request:
 	POST /api/token HTTP/1.1
 	Host: elementary.io
 	Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
-	Content-Type: application/x-www-form-urlencoded`
+	Content-Type: application/x-www-form-urlencoded
 
 	grant_type=authorization_code&code=SplxlOBeZQQYbYS6WxSbIA
-	&redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb`
+	&redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb
 
-Example response:
+##### Example response:
 
 	HTTP/1.1 200 OK
 	Content-Type: application/json;charset=UTF-8
@@ -107,56 +107,48 @@ Example response:
 
 #### GET /api/user
 
-Description: User data for currently authenticated user
+**Description:** User data for currently authenticated user
 
-`Body: {access_token: <token>} as form data`
+**Body:** {access_token: <token>} as form data
 
-`Response: User data as JSON or error`
+**Response:** User data as JSON or error
 
-`Example successful response body:`
+Example successful response body:
 
-`{`
-
-`"_id":"5350a88aac1b7fc107073995",`
-
-`"email":"avi@romanoff.me",`
-
-`"is_verified":true,`
-
-`"joined":"2014-04-18T04:20:52.997Z"`
-
-`}`
+	{
+		"_id":"5350a88aac1b7fc107073995",
+		"email":"avi@romanoff.me",
+		"is_verified":true,
+		"joined":"2014-04-18T04:20:52.997Z"
+	}
 
 #### PUT /api/user
 
-`Description: Update user data`
+**Description:** Update user data
 
-`Body: {access_token: <token>} as form data`
+**Body:** {access_token: <token>} as form data
 
-`Response: User data as JSON or error`
+**Response:** User data as JSON or error
 
 #### DELETE /api/user
 
-`Description: Delete a user`
+**Description:** Delete a user
 
-`Body: {access_token: <token>} as form data`
+**Body:** {access_token: <token>} as form data
 
-`Response: User data as JSON or error`
+**Response:** User data as JSON or error
 
 #### GET /api/users/{username}
 
-`Description: User data`
+**Description:** User data
 
-`Body: {access_token: <token>} as form data`
+**Body:** {access_token: <token>} as form data
 
-`Response: User data as JSON or error`
+**Response:** User data as JSON or error
 
-`Example successful response body:`
+Example successful response body:
 
-`{`
-
-`"_id":"5350a88aac1b7fc107073995",`
-
-`"joined":"2014-04-18T04:20:52.997Z"`
-
-`}`
+	{
+		"_id":"5350a88aac1b7fc107073995",
+		"joined":"2014-04-18T04:20:52.997Z"
+	}
