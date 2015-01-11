@@ -1,26 +1,4 @@
-# io
-elementary's web and cloud account system (via OAuth2)
-
-## Working Spec
-
-* All endpoints MUST be accessed over TLS
-
-* All 200 responses return JSON
-
-* This API is available over the public Internet, so keep that in mind
-
-Here’s the library we’re using to implement the oauth2 server:
-
-[https://github.com/RangelReale/osin](https://github.com/RangelReale/osin)
-
-Good reading on the subject of oauth2:
-[http://alexbilbie.com/2013/02/a-guide-to-oauth-2-grants/](http://alexbilbie.com/2013/02/a-guide-to-oauth-2-grants/)
-
-### Base URL: 
-
-`https://elementary.io/api/`
-
-### Features for MVP:
+## Features for MVP:
 
 * Store user information:
 
@@ -50,11 +28,32 @@ Good reading on the subject of oauth2:
 
 * [Authorization code grant](http://tools.ietf.org/html/rfc6749#section-4.1) (Facebook-style)
 
-## API Endpoints:
+## io working spec
 
-**`GET /oauth/authoriz**e`
+elementary's web and cloud account system (via OAuth2)
 
-**`URL Parameters**:`
+* All endpoints MUST be accessed over TLS
+
+* All 200 responses return JSON
+
+* This API is available over the public Internet, so keep that in mind
+
+Here’s the library we’re using to implement the oauth2 server:
+
+[https://github.com/RangelReale/osin](https://github.com/RangelReale/osin)
+
+Good reading on the subject of oauth2:
+[http://alexbilbie.com/2013/02/a-guide-to-oauth-2-grants/](http://alexbilbie.com/2013/02/a-guide-to-oauth-2-grants/)
+
+### Base URL: 
+
+`https://elementary.io/api/`
+
+### API Endpoints:
+
+#### GET /oauth/authorize
+
+`URL Parameters:`
 
 `response_type (required, must be set to `code`)`
 
@@ -66,7 +65,7 @@ Good reading on the subject of oauth2:
 
 `redirect_uri  (required, properly escaped http url)`
 
-**`Response: 302 Found (see below**)`
+`Response: 302 Found (see below)`
 
 `Authorize successful -> redirect_uri?code=<code>&state=<state>`
 
@@ -76,14 +75,14 @@ Good reading on the subject of oauth2:
 
 `Where error is defined in section 4.1.2.1 of RFC6749`
 
-**`Example request**:`
+`Example request:`
 
 `/api/authorize?response_type=code&client_id=s6BhdRkqt3&state=xyz
         &redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb`
 
-**`POST /api/toke**n`
+#### POST /api/token`
 
-**`Example request**:`
+`Example request:`
 
 `  POST /api/token HTTP/1.1
   Host: elementary.io
@@ -94,7 +93,7 @@ Good reading on the subject of oauth2:
   grant_type=authorization_code&code=SplxlOBeZQQYbYS6WxSbIA
   &redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb`
 
-**`Example response**:`
+`Example response:`
 
 `HTTP/1.1 200 OK`
 
@@ -116,15 +115,15 @@ Good reading on the subject of oauth2:
 
 `}`
 
-**`GET /api/use**r`
+#### GET /api/user
 
-**`Description: User data for currently authenticated use**r`
+Description: User data for currently authenticated user
 
-**`Body: {access_token: <token>} as form dat**a`
+`Body: {access_token: <token>} as form data`
 
-**`Response: User data as JSON or erro**r`
+`Response: User data as JSON or error`
 
-**`Example successful response body**:`
+`Example successful response body:`
 
 `{`
 
@@ -138,31 +137,31 @@ Good reading on the subject of oauth2:
 
 `}`
 
-**`PUT /api/use**r`
+#### PUT /api/user
 
-**`Description: Update user dat**a`
+`Description: Update user data`
 
-**`Body: {access_token: <token>} as form dat**a`
+`Body: {access_token: <token>} as form data`
 
-**`Response: User data as JSON or erro**r`
+`Response: User data as JSON or error`
 
-**`DELETE /api/use**r`
+#### DELETE /api/user
 
-**`Description: Delete a use**r`
+`Description: Delete a user`
 
-**`Body: {access_token: <token>} as form dat**a`
+`Body: {access_token: <token>} as form data`
 
-**`Response: User data as JSON or erro**r`
+`Response: User data as JSON or error`
 
-**`GET /api/users/{username**}`
+#### GET /api/users/{username}
 
-**`Description: User dat**a`
+`Description: User data`
 
-**`Body: {access_token: <token>} as form dat**a`
+`Body: {access_token: <token>} as form data`
 
-**`Response: User data as JSON or erro**r`
+`Response: User data as JSON or error`
 
-**`Example successful response body**:`
+`Example successful response body:`
 
 `{`
 
