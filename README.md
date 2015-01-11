@@ -28,7 +28,7 @@
 
 * [Authorization code grant](http://tools.ietf.org/html/rfc6749#section-4.1) (Facebook-style)
 
-## io working spec
+## Working spec
 
 elementary's web and cloud account system (via OAuth2)
 
