@@ -1,22 +1,22 @@
-## Features for MVP:
+## Features for MVP
 
-* Store user information:
+* Store user information
 
-* First & Last Name
+	* First & Last Name
 
-* Avatar (Gravatar)
+	* Avatar (Gravatar)
 
-* Address (remember International ones may be different)
+	* Address (remember International ones may be different)
 
-* Email Address
+	* Email Address
 
-* Password (hashed)
+	* Password (hashed)
 
-* Language
+	* Language
 
-* User Roles (only internal for admin purposes)
+	* User Roles (only internal for admin purposes)
 
-* Date Joined
+	* Date Joined
 
 * Store payment information via Stripe ([https://stripe.com/docs](https://stripe.com/docs))
 
@@ -45,11 +45,11 @@ Here’s the library we’re using to implement the oauth2 server:
 Good reading on the subject of oauth2:
 [http://alexbilbie.com/2013/02/a-guide-to-oauth-2-grants/](http://alexbilbie.com/2013/02/a-guide-to-oauth-2-grants/)
 
-### Base URL: 
+### Base URL
 
 `https://elementary.io/api/`
 
-### API Endpoints:
+### API Endpoints
 
 #### GET /oauth/authorize
 
@@ -75,45 +75,44 @@ Good reading on the subject of oauth2:
 
 `Where error is defined in section 4.1.2.1 of RFC6749`
 
-`Example request:`
+Example request:
 
 `/api/authorize?response_type=code&client_id=s6BhdRkqt3&state=xyz
         &redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb`
 
-#### POST /api/token`
+#### POST /api/token
 
-`Example request:`
+Example request:
 
-`  POST /api/token HTTP/1.1
-  Host: elementary.io
-  Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
-  Content-Type: application/x-www-form-urlencoded`
+	POST /api/token HTTP/1.1
+	Host: elementary.io
+	Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+	Content-Type: application/x-www-form-urlencoded`
 
-`
-  grant_type=authorization_code&code=SplxlOBeZQQYbYS6WxSbIA
-  &redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb`
+	grant_type=authorization_code&code=SplxlOBeZQQYbYS6WxSbIA
+	&redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb`
 
-`Example response:`
+Example response:
 
-`HTTP/1.1 200 OK`
+	HTTP/1.1 200 OK
 
-`Content-Type: application/json;charset=UTF-8`
+	Content-Type: application/json;charset=UTF-8
 
-`Cache-Control: no-store`
+	Cache-Control: no-store
 
-`Pragma: no-cache`
+	Pragma: no-cache
 
-`{`
+	{
 
-`"access_token":"2YotnFZFEjr1zCsicMWpAA",`
+	"access_token":"2YotnFZFEjr1zCsicMWpAA",
 
-`"token_type":"bearer",`
+	"token_type":"bearer",
 
-`"expires_in":3600,`
+	"expires_in":3600,
 
-`"refresh_token":"tGzv3JOkF0XG5Qx2TlKWIA"`
+	"refresh_token":"tGzv3JOkF0XG5Qx2TlKWIA"
 
-`}`
+	}
 
 #### GET /api/user
 
@@ -170,4 +169,3 @@ Description: User data for currently authenticated user
 `"joined":"2014-04-18T04:20:52.997Z"`
 
 `}`
-
