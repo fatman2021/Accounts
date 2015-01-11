@@ -53,27 +53,27 @@ Good reading on the subject of oauth2:
 
 #### GET /oauth/authorize
 
-	URL Parameters:
+**URL Parameters:**
 
-	response_type (required, must be set to code)
+`response_type` (required, must be set to `code`)
 
-	client_id     (required, )
+`client_id`     (required)
 
-	scope         (required, )
+`scope`         (required)
 
-	state         (required, used for xsrf protection)
+`state`         (required, used for xsrf protection)
 
-	redirect_uri  (required, properly escaped http url)
+`redirect_uri`  (required, properly escaped http url)
 
-	Response: 302 Found (see below)
+**Response: 302 Found (see below)**
 
-	Authorize successful -> redirect_uri?code=<code>&state=<state>
+Authorize successful -> redirect_uri?code=<code>&state=<state>
 
-	Where code is ...
+**Where code is ...**
 
-	Authorize failed -> redirect_uri?error=<error>&state=<state>
+Authorize failed -> redirect_uri?error=<error>&state=<state>
 
-	Where error is defined in section 4.1.2.1 of RFC6749
+Where error is defined in section 4.1.2.1 of RFC6749
 
 ##### Example request:
 
@@ -98,12 +98,14 @@ Good reading on the subject of oauth2:
 	Content-Type: application/json;charset=UTF-8
 	Cache-Control: no-store
 	Pragma: no-cache
-	{
-		"access_token":"2YotnFZFEjr1zCsicMWpAA",
-		"token_type":"bearer",
-		"expires_in":3600,
-		"refresh_token":"tGzv3JOkF0XG5Qx2TlKWIA"
-	}
+```json
+{
+	"access_token": "2YotnFZFEjr1zCsicMWpAA",
+	"token_type": "bearer",
+	"expires_in": 3600,
+	"refresh_token": "tGzv3JOkF0XG5Qx2TlKWIA"
+}
+```
 
 #### GET /api/user
 
@@ -117,10 +119,10 @@ Example successful response body:
 
 ```json
 {
-	"_id":"5350a88aac1b7fc107073995",
-	"email":"avi@romanoff.me",
-	"is_verified":true,
-	"joined":"2014-04-18T04:20:52.997Z"
+	"_id": "5350a88aac1b7fc107073995",
+	"email": "avi@romanoff.me",
+	"is_verified": true,
+	"joined": "2014-04-18T04:20:52.997Z"
 }
 ```
 
@@ -150,9 +152,9 @@ Example successful response body:
 
 Example successful response body:
 
-	```json
-	{
-		"_id": "5350a88aac1b7fc107073995",
-		"joined": "2014-04-18T04:20:52.997Z"
-	}
-	```
+```json
+{
+	"_id": "5350a88aac1b7fc107073995",
+	"joined": "2014-04-18T04:20:52.997Z"
+}
+```
